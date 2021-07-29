@@ -152,8 +152,8 @@ pub extern "C" fn call() {
 
     let (contract_hash, _) =
         storage::new_locked_contract(entry_points, Some(named_keys), None, None);
-    runtime::put_key("ERC20", contract_hash.into());
-    runtime::put_key("ERC20_hash", storage::new_uref(contract_hash).into());
+    runtime::put_key("ERC20_DLNG", contract_hash.into());
+    runtime::put_key("ERC20_DLNG_hash", storage::new_uref(contract_hash).into());
 }
 
 fn _transfer(sender: AccountHash, recipient: PublicKey, amount: U256) {
