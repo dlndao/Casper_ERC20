@@ -19,7 +19,7 @@ use types::{
     account::AccountHash,
     bytesrepr::{FromBytes, ToBytes},
     contracts::{EntryPoint, EntryPointAccess, EntryPointType, EntryPoints, NamedKeys},
-    runtime_args, CLType, CLTyped, CLValue, Group, Parameter, RuntimeArgs, URef, U256,
+    runtime_args, CLType, CLTyped, CLValue, Group, Parameter, PublicKey, RuntimeArgs, URef, U256,
 };
 
 #[no_mangle]
@@ -70,7 +70,7 @@ pub extern "C" fn approve() {
 
 #[no_mangle]
 pub extern "C" fn transfer() {
-    let recipient: AccountHash = runtime::get_named_arg("recipient");
+    let recipient: PublicKey = runtime::get_named_arg("recipient");
     let amount: U256 = runtime::get_named_arg("amount");
     _transfer(runtime::get_caller(), recipient, amount);
 }
@@ -78,7 +78,7 @@ pub extern "C" fn transfer() {
 #[no_mangle]
 pub extern "C" fn transfer_from() {
     let owner: AccountHash = runtime::get_named_arg("owner");
-    let recipient: AccountHash = runtime::get_named_arg("recipient");
+    let recipient: PublicKey = runtime::get_named_arg("recipient");
     let amount: U256 = runtime::get_named_arg("amount");
     _transfer_from(owner, recipient, amount);
 }
@@ -98,7 +98,7 @@ pub extern "C" fn call() {
     entry_points.add_entry_point(endpoint(
         "transfer",
         vec![
-            Parameter::new("recipient", AccountHash::cl_type()),
+            Parameter::new("recipient", PublicKey::cl_type()),
             Parameter::new("amount", CLType::U256),
         ],
         CLType::Unit,
@@ -156,16 +156,17 @@ pub extern "C" fn call() {
     runtime::put_key("ERC20_hash", storage::new_uref(contract_hash).into());
 }
 
-fn _transfer(sender: AccountHash, recipient: AccountHash, amount: U256) {
+fn _transfer(sender: AccountHash, recipient: PublicKey, amount: U256) {
     let sender_key = balance_key(&sender);
-    let recipient_key = balance_key(&recipient);
+    let recipient_key = balance_key(&recipient.to_account_hash());
+
     let new_sender_balance: U256 = (get_key::<U256>(&sender_key) - amount);
     set_key(&sender_key, new_sender_balance);
     let new_recipient_balance: U256 = (get_key::<U256>(&recipient_key) + amount);
     set_key(&recipient_key, new_recipient_balance);
 }
 
-fn _transfer_from(owner: AccountHash, recipient: AccountHash, amount: U256) {
+fn _transfer_from(owner: AccountHash, recipient: PublicKey, amount: U256) {
     let key = allowance_key(&owner, &runtime::get_caller());
     _transfer(owner, recipient, amount);
     _approve(
