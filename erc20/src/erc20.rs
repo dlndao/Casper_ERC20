@@ -1,9 +1,14 @@
 use alloc::string::String;
-
+// use alloc::vec::Vec;
 use casper_types::{Key, U256};
 use contract_utils::{ContractContext, ContractStorage};
 
-use crate::data::{self, Allowances, Balances, Stakes};
+// use crate::data::{self, Allowances, Balances, Proposals, Stakes};
+
+use crate::{
+    data::{self, Allowances, Backers, Balances, Proposals, Stakes},
+    Backer, Proposal, ProposalId,
+};
 
 pub trait ERC20<Storage: ContractStorage>: ContractContext<Storage> {
     fn init(&mut self, name: String, symbol: String, decimals: u8) {
@@ -12,6 +17,8 @@ pub trait ERC20<Storage: ContractStorage>: ContractContext<Storage> {
         data::set_decimals(decimals);
         Balances::init();
         Stakes::init();
+        Backers::init();
+        Proposals::init();
         Allowances::init();
     }
 
@@ -21,6 +28,14 @@ pub trait ERC20<Storage: ContractStorage>: ContractContext<Storage> {
 
     fn stake_of(&mut self, owner: Key) -> U256 {
         Stakes::instance().get(&owner)
+    }
+
+    fn back_of(&mut self, proposal_id: ProposalId) -> Option<Backer> {
+        Backers::instance().get(&proposal_id)
+    }
+
+    fn get_proposal(&mut self, proposal_id: ProposalId) -> Option<Proposal> {
+        Proposals::instance().get(&proposal_id)
     }
 
     fn transfer(&mut self, recipient: Key, amount: U256) {
@@ -57,9 +72,24 @@ pub trait ERC20<Storage: ContractStorage>: ContractContext<Storage> {
         stakes.set(&recipient, _stake + amount);
     }
 
+    fn add_backer(&mut self, proposal_id: ProposalId, backers_map: Backer) {
+        let backer_dict = Backers::instance();
+        backer_dict.set(&proposal_id, backers_map.clone());
+    }
+
+    fn add_proposal(&mut self, proposal_id: ProposalId, proposals_map: Proposal) {
+        let proposal_dict = Proposals::instance();
+        proposal_dict.set(&proposal_id, proposals_map.clone());
+    }
+
     fn remove_stakeholder(&mut self, recipient: Key) {
         let stakes = Stakes::instance();
         stakes.remove(&recipient);
+    }
+
+    fn remove_backer(&mut self, proposal_id: ProposalId) {
+        let backers = Backers::instance();
+        backers.remove(&proposal_id);
     }
 
     fn make_transfer(&mut self, sender: Key, recipient: Key, amount: U256) {
