@@ -1,0 +1,140 @@
+{
+    "paths": [
+        {
+            "name": "/api/auth",
+            "lambdaFunction": "auth",
+            "privacy": {
+                "open": true
+            }
+        },
+        {
+            "name": "/api/users/get/{userId}",
+            "lambdaFunction": "auth",
+            "privacy": {
+                "open": true
+            }
+        },
+        {
+            "name": "/api/users/update/{userId}",
+            "lambdaFunction": "auth",
+            "privacy": {
+                "open": true
+            }
+        },
+        {
+            "name": "/api/users/getReferralCount",
+            "lambdaFunction": "auth",
+            "privacy": {
+                "open": true
+            }
+        },
+        {
+            "name": "/api/users",
+            "lambdaFunction": "auth",
+            "privacy": {
+                "open": true
+            }
+        },
+        {
+            "name": "/api/users/countriesCount",
+            "lambdaFunction": "auth",
+            "privacy": {
+                "open": true
+            }
+        },
+        {
+            "name": "/api/users/getReferralsCounts",
+            "lambdaFunction": "auth",
+            "privacy": {
+                "open": true
+            }
+        },
+        {
+            "name": "/api/nft",
+            "lambdaFunction": "auth",
+            "privacy": {
+                "open": true
+            }
+        },
+        {
+            "name": "/api/nft/getNFT",
+            "lambdaFunction": "auth",
+            "privacy": {
+                "open": true
+            }
+        },
+        {
+            "name": "/api/nft/updateNFT",
+            "lambdaFunction": "auth",
+            "privacy": {
+                "open": true
+            }
+        },
+        {
+            "name": "/api/policies",
+            "lambdaFunction": "auth",
+            "privacy": {
+                "open": true
+            }
+        },
+        {
+            "name": "/api/borrow",
+            "lambdaFunction": "auth",
+            "privacy": {
+                "open": true
+            }
+        },
+        {
+            "name": "/api/borrow/findOne",
+            "lambdaFunction": "auth",
+            "privacy": {
+                "open": true
+            }
+        },
+        {
+            "name": "/api/borrow/update",
+            "lambdaFunction": "auth",
+            "privacy": {
+                "open": true
+            }
+        },
+        {
+            "name": "/api/borrow/sendBackInvitation",
+            "lambdaFunction": "auth",
+            "privacy": {
+                "open": true
+            }
+        },
+        {
+            "name": "/api/mfi",
+            "lambdaFunction": "auth",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "auth",
+    "apiName": "auth",
+    "functionArns": [
+        {
+            "lambdaFunction": "auth"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-dln-dev-182402-authRole",
+        "unAuthRoleName": "amplify-dln-dev-182402-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "auth",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "d47e211b"
+}

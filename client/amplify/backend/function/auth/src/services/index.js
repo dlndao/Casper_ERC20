@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.services = void 0;
+const express_1 = __importDefault(require("express"));
+const auth_1 = require("./auth");
+const users_1 = require("./users");
+const nft_1 = require("./nft");
+const treasuryPolicy_1 = require("./treasuryPolicy");
+const borrow_1 = require("./borrow");
+const mfis_1 = require("./mfis");
+exports.services = express_1.default.Router();
+exports.services.use('/auth', auth_1.authRouter);
+exports.services.use('/users', users_1.userRouter);
+exports.services.use('/nft', nft_1.nftRouter);
+exports.services.use('/policies', treasuryPolicy_1.treasuryPolicyRouter);
+exports.services.use('/borrow', borrow_1.borrowRouter);
+exports.services.use('/mfi', mfis_1.mfiRouter);

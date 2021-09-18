@@ -1,0 +1,112 @@
+/*
+*  theme overwrite 
+=================================
+=================================
+=================================*/
+/**! user style **/
+/**! ----- font family init ---- **/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  font-family: "SFUI", sans-serif;
+}
+
+p {
+  font-weight: 400;
+  font-family: "SFUI", sans-serif;
+}
+
+.blockquote h4 {
+  line-height: 3rem;
+}
+
+.blockquote h5 {
+  line-height: 2.8rem;
+}
+
+/**! ----- font Setting (size & line height, spacing etc) ---- **/
+.h1-font, h1 {
+  font-size: 2.25rem;
+  line-height: 1.35;
+}
+
+@media only screen and (min-width: 768px) {
+  .h1-font, h1 {
+    font-size: 3.75rem;
+    line-height: 1.16;
+  }
+}
+
+.h2-font, h2 {
+  font-size: 2.25rem;
+  line-height: 1.35;
+}
+
+@media only screen and (min-width: 768px) {
+  .h2-font, h2 {
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+}
+
+.h3-font, h3 {
+  font-size: 2.25rem;
+  line-height: 1.35;
+}
+
+.h4-font, h4 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.h5-font, h5 {
+  font-size: 1.375rem;
+  line-height: 1.5;
+}
+
+.h6-font, h6, .blockquote {
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+.body-font, p {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+/**! ----- Theme Common colors (Also Used as extend in SCSS ) ---- **/
+mark,
+ins, .bg-color--primary, [class*="bg-color--primary-opacity-"]::before, .btn-bg--primary, .btn-bg--primary--05::after, .btn-hover--primary:hover, .card-hover--bg--primary-shadow.focused, .card-hover--bg--primary-shadow:hover, .preloader .blobs .blob-center, .preloader .blob, .form--v8:after, .ico-progress--v2 .ico-progress__stages:after, .decor, .carosuel-slider--v1 .slick-dots .slick-active button, .carosuel-triangle:hover, .label-bg--light--200::before, .pagination .page-item.active .page-link, .sticky .card, .sticky .article__thumbnail-image::before, .widget_calendar tbody a, .post-navigation .meta-nav::before, .navbar-sticky--moved-up.sticky-bg-color--primary, .roadmap--v4 .roadmap-item--current .timeline-line:before {
+  background: #3965f4;
+}
+
+.color--primary, .card--v2 .card.focused .card__title, .card--v2 .card:hover .card__title, a.list-group-item:hover, a.list-group-item.active, a.list-group-item:focus, .text-hover--primary:hover, .section--dark .text-hover--primary:hover,
+.section--darkblue .text-hover--primary:hover, .icon-rounded-color--gray i:hover, .carosuel-arrow, .carosuel-cursor--dark i:hover, .dropdown-module__item:focus, .dropdown-module__item:hover, .dropdown-module--dark .dropdown-module__item:focus, .dropdown-module--dark .dropdown-module__item:hover, .label-bg--primary, .pagination .page-item:not(.active) .page-link, .breadcrumb--v1 .breadcrumb, .breadcrumb--v1 .breadcrumb a, .blog-details .article-content a,
+.blog-details .comment-content a, .article-author__name:hover, .article__title h2:hover, .blog-details .entry-header .entry-author .url:hover, .blog-details .entry-meta .post-categories a, .blog-sidebar .widget-title, .blog-sidebar .widget li a:hover, .blog-sidebar .widget li a:focus, .blog-sidebar .widget li a:hover i, .blog-sidebar .widget li a:focus i, .blog-sidebar .widget_tag_cloud ul li a:hover, .blog-sidebar .widget_nav .menu li .current_page_item > a,
+.blog-sidebar .widget_nav .menu li .current-menu-item > a, .widget_calendar tfoot a, .widget_rss .widget-title .rsswidget, .post-navigation .meta-nav, .post-navigation .post-title:hover, .tags-links a, .comments-area .comment-reply-link, .dropdown-item:focus, .dropdown-item:hover, .dropdown-item.active, .dropdown-item:active, .footer.section--light a:hover {
+  color: #3965f4;
+}
+
+.fill--primary rect,
+.fill--primary path,
+.fill--primary polygon,
+.fill--primary circle {
+  fill: #3965f4;
+}
+
+.btn-border--color--primary, .btn-hover--primary.btn-border--color--dark:hover, .btn-hover--primary.btn-border--color--light:hover, .icon-rounded-color--primary, .icon-rounded-color--gray i:hover, .carosuel-arrow {
+  border-color: #3965f4;
+}
+
+/*---- Boxed Layout Init----*/
+body.boxed-layout .main, body.boxed-layout .navbar {
+  max-width: 1366px;
+}
+
+/*! Place your custom styles here (below). 
+      This will make it much easier to update the template later - you'll only need to preserve "this file
+  ===================================================================================================*/

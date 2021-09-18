@@ -1,0 +1,149 @@
+
+/*------------------------------------*\
+    #Timeline
+\*------------------------------------*/
+.timeline-content {
+  text-align: left;
+  position: relative;
+}
+.timeline-content:before {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 2px;
+  background-color: #cecece;
+  left: 50%;
+  margin-left: -1px;
+}
+.timeline-content .row-interval,
+.timeline-content .row .col-md-6,
+.timeline-content .timeline-panel {
+  position: relative;
+}
+.timeline-content .timeline-panel-right {
+  text-align: left;
+  padding-left: 80px;
+  margin-left: 20px;
+}
+.timeline-content .timeline-panel-left {
+  text-align: right;
+  padding-right: 80px;
+  margin-right: 20px;
+}
+.timeline-content .row-interval:before {
+  position: absolute;
+  content: "\f017";
+  top: 0;
+  left: 50%;
+  color: #282828;
+  font-family: "Font Awesome 5 Free";
+  font-size: 17px;
+  line-height: 40px;
+  background-color: #f9f9f9;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.timeline-content .event--content {
+  background-color: #ffffff;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 2px 20px 10px rgba(224, 224, 224,0.6);
+  box-shadow: 0px 2px 20px 10px rgba(224 ,224 ,224,0.6);
+  padding: 30px 30px 23px;
+}
+.timeline-content .event--content h6 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+  font-style: normal;
+  margin-bottom: 14px;
+}
+.timeline-content .event--content p {
+  font-size: 15px;
+  line-height: 26px;
+  color: #9b9b9b;
+  margin-bottom: 0;
+}
+.timeline-content .event--date {
+  text-align: center;
+  position: absolute;
+  top: 0;
+}
+.timeline-content .timeline-panel-right .event--date {
+  left: 0;
+}
+.timeline-content .timeline-panel-left .event--date {
+  right: 0;
+}
+.timeline-content .event--date .day {
+  width: 70px;
+  height: 49px;
+  line-height: 49px;
+  display: block;
+  background-color: $dln-green;
+  color: #ffffff;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 25px;
+  font-style: italic;
+  margin-bottom: 4px;
+}
+.timeline-content .event--date .month {
+  font-size: 13px;
+  line-height: 1;
+  color: #9b9b9b;
+}
+/* Custom, iPhone Retina */
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .timeline-content {
+    padding-left: 20px;
+  }
+  .timeline-content:before {
+    left: 0;
+  }
+  .timeline-content .timeline-panel-left,
+  .timeline-content .timeline-panel-right {
+    text-align: left;
+    padding-left: 80px;
+    padding-right: 0;
+    margin: 0 0 20px 0;
+  }
+  .timeline-content .timeline-panel-left .event--date {
+    right: auto;
+    left: 0;
+  }
+  .timeline-content .row-interval:before {
+    left: -4px;
+  }
+  .timeline-content .row {
+    text-align: left;
+    margin-bottom: 25px;
+  }
+  .timeline-content .flex-row-reverse {
+    -ms-flex-direction: row!important;
+    flex-direction: row !important;
+  }
+  .timeline-content .event--content {
+    padding: 20px 20px 13px;
+  }
+  .timeline-content .event--content h6 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .timeline-content .timeline-panel-left,
+  .timeline-content .timeline-panel-right {
+    text-align: left;
+    padding-left: 80px;
+    padding-right: 0;
+    margin: 0 0 20px 0;
+  }
+  .timeline-content .timeline-panel-left .event--date {
+    right: auto;
+    left: 0;
+  }
+  .timeline-content .row {
+    text-align: left;
+    margin-bottom: 25px;
+  }
+}

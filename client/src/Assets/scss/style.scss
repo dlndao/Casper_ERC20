@@ -1,0 +1,466 @@
+.dln-Landing {
+  overflow-x: hidden;
+  position: relative;
+
+  .dln-overlay {
+    color: #fff;
+    position: absolute;
+    z-index: 12;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    img {
+      width: 400px;
+    }
+  }
+  video {
+    min-height: 100vh;
+    min-width: 100vw;
+  }
+  @media (min-width: 1500px) {
+    .dnl-landing-text {
+      flex: 0 0 41.66667%;
+      max-width: 41.66667%;
+    }
+  }
+  @media (max-width: 1024px) {
+    .dnl-landing-text {
+      padding: 0px 20px;
+      h3 {
+        font-size: 18px;
+      }
+      p {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  @media (max-width: 320px) {
+    .dnl-landing-text {
+      padding: 0px 20px;
+      h3 {
+        font-size: 15px;
+      }
+      p {
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+.dln-form-title {
+  font-size: 26px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.dln-primary-btn {
+  background-color: #6ab83a;
+  color: #fff;
+  min-width: 150px;
+}
+.dln-contact-form {
+  background-color: #fff;
+  min-height: 90vh;
+}
+.dln-title-hr {
+  margin-top: 5px;
+  margin-bottom: 1rem;
+  border: 3px;
+  border-top: 1px solid rgba(41, 98, 60, 0.5);
+  width: 220px;
+}
+.dln-contact-info-title {
+  text-transform: uppercase;
+}
+.dln-contact-info-item {
+  color: #6ab83a;
+}
+.dln-secondary-btn {
+  border: 2px solid #6ab83a;
+  color: #6ab83a;
+  min-width: 150px;
+  font-weight: 600;
+}
+.dln-form-logo {
+  width: 300px;
+}
+.dln-form-binance-logo {
+  width: 200px;
+}
+hr {
+  border: solid;
+  border-width: 1px;
+  border-color: #6ab83a;
+}
+
+.dln-user-profile {
+  width: 100%;
+  height: 62px;
+  margin: auto;
+  padding: 0 10px;
+  background-color: #222 !important;
+  color: #fff;
+  font-size: 14px;
+  z-index: 1;
+}
+.dln-user-profile {
+  .navbar-collapse.show {
+    background-color: #222 !important;
+    margin-left: -9px;
+    padding-top: 10px;
+    .dln-lnk {
+      display: block;
+      text-align: center;
+      margin-top: 8px;
+    }
+    .dln-profile-key {
+      margin-left: 8px;
+      width: 68%;
+      span {
+        word-break: break-all;
+      }
+    }
+    .dln-profile-Control {
+      display: block;
+      width: 60%;
+      margin-left: 8px;
+      margin-top: 10px;
+    }
+    .dln-primary-btn {
+      float: left;
+      margin-top: 10px;
+    }
+  }
+  .navbar-brand {
+    font-size: 14px;
+    canvas {
+      width: 45px !important;
+      height: 45px !important;
+      border-radius: unset !important;
+      margin-top: 5px;
+    }
+  }
+}
+
+.navbar-toggler.collapsed {
+  color: #fff;
+}
+.dln-profile-Control {
+  width: 300px;
+  display: inline-block;
+}
+
+.dln-lnk {
+  font-family: 'Lato', sans-serif, 'Open Sans', sans-serif;
+  color: #6ab83a;
+  font-weight: 600;
+  &:focus {
+    box-shadow: none;
+  }
+}
+.dln-tooltip {
+  font-size: 14px !important;
+  background-color: #222 !important;
+}
+.dln-tooltip-arrow {
+  color: #222 !important;
+}
+.text-truncate {
+  max-width: 100%;
+}
+.dln-toaster {
+  & > div {
+    border-radius: 10px;
+    &[class*='success'] {
+      background: #6ab83a;
+      color: #fff;
+    }
+    &[class*='error'] {
+      color: #fff;
+    }
+  }
+}
+.dln-page-spinner-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 10;
+  .dln-spinner-body {
+    display: flex;
+    justify-content: center;
+    padding-top: 200px;
+    .dln-page-spinner {
+      width: 5rem;
+      height: 5rem;
+      color: #6ab83a;
+    }
+  }
+}
+.dln-section-spinner-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 10;
+  &.dln-section-spinner-container__casper{
+    top:0;
+    left: 0;
+  }
+  .dln-spinner-body {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    .dln-page-spinner {
+      width: 3rem;
+      height: 3rem;
+      color: #6ab83a;
+    }
+  }
+  &.dln-select-spinner {
+    width: 94%;
+    height: 61%;
+    .dln-page-spinner {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}
+.dln-social-media-share {
+  position: absolute;
+  bottom: 0;
+  z-index: 13;
+  color: #fff;
+  width: 100%;
+  .list-inline-item:not(:last-child) {
+    margin-right: 1.5rem;
+  }
+}
+@media (min-width: 991px) and (max-width: 1100px) {
+  .dln-profile-key {
+    width: 270px;
+  }
+}
+.dln-user-name {
+  margin-top: 14px;
+}
+.dln-centered-vertically-modal {
+  .modal-dialog {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: unquote('calc(100vh - 20px)');
+    // 20px offset for the 10px margin on either side
+
+    .modal-content {
+      width: 100%;
+    }
+  }
+}
+.dln-partner-section {
+  img {
+    height: 51px;
+    width: 115px;
+  }
+}
+.dln-partner-back {
+  background-image: url('../img/layout/oval.png');
+  background-repeat: no-repeat;
+}
+.slick-dots,
+.slick-active {
+  button {
+    &:before {
+      color: transparent !important;
+    }
+  }
+}
+.dln-ref-data {
+  font-size: 15px;
+}
+.dln-report-btn {
+  width: 65px;
+  min-width: 65px;
+  font-size: 14px;
+}
+.dln-report {
+  .MuiTableCell-sizeSmall {
+    padding: 6px 1px 6px 5px;
+  }
+  .MuiAlert-icon {
+    align-self: center;
+  }
+}
+.dln-copy-link {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+@media (min-width: 768px) {
+  .dln-states {
+    &.col-md-5 {
+      flex: 0 0 47.66667%;
+      max-width: 47.66667%;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .dln-states {
+    margin-bottom: 10px;
+  }
+}
+.dln-inner-page-seperation {
+  border-bottom: 1px solid #6ab83a;
+}
+@media (min-width: 1500px) and (max-width: 1900px) {
+  .dln-withdraw-address {
+    flex: 0 0 85.33333% !important;
+    max-width: 85.33333% !important;
+  }
+}
+@media (min-width: 991px) and (max-width: 1500px) {
+  .dln-withdraw-address {
+    flex: 0 0 78% !important;
+    max-width: 78% !important;
+  }
+}
+.dln-disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+.dln-datepicker {
+  &:before {
+    content: '\f073';
+    font-family: 'Font Awesome\ 5 Free';
+    top: 6px;
+    color: #666;
+    right: 22px;
+    position: absolute;
+    font-size: 16px;
+    z-index: 1;
+  }
+  width: 100%;
+}
+.react-datepicker-wrapper {
+  width: 100%;
+}
+.nav-tabs {
+  border-bottom: 1px solid #6ab83a !important;
+  .nav-link {
+    color: #495057;
+  }
+}
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  border-color: #6ab83a #6ab83a #fff !important;
+  color: #6ab83a !important;
+}
+.react-datepicker-popper,
+.calendar-popout {
+  z-index: 111119999 !important;
+}
+.dln-menu-item {
+  margin: 0 15px;
+  img {
+    width: 50px;
+  }
+}
+.dln-view-proposal {
+  position: absolute;
+  left: 20px;
+  top: 33px;
+}
+.proposal-img-container {
+  height: 230px;
+  width: 230px;
+  background-color: #fff;
+  border-radius: 10px 10px 0 0;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+.dln-view-proposal-img {
+  width: 150px !important;
+  height: 150px !important;
+}
+.dln-liq-current-balance {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  padding-right: 5rem;
+  border-radius: 0.25rem;
+}
+.dln-liq-current-balance--left {
+  display: flex;
+  align-self: center;
+  background-color: #868e96;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+.dln-liq-current-balance--right {
+  padding-left: 6rem;
+  padding-right: 6rem;
+  text-align: left;
+  position: relative;
+  padding-top: 1.5rem;
+}
+.dln-liq-current-balance--right--btns {
+  position: absolute;
+  bottom: 1rem;
+}
+.dln-success-card {
+  color: #fff;
+  .card-header {
+    text-align: left;
+
+    background-color: #5cb426;
+  }
+  .card-body {
+    background-color: #6ab83a;
+  }
+}
+.dln-primary-card {
+  color: #fff;
+
+  .card-header {
+    background-color: #0081f4;
+    text-align: left;
+  }
+  .card-body {
+    background-color: #0085fc;
+  }
+}
+.dln-liq-date {
+  color: #999;
+  font-size: 15px;
+}
+@media (max-width: 1200px) {
+  .dln-liq-current-balance--right {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+.dln-casper-assets{
+  .dln-form-logo {
+    width: 170px;
+  }
+  .dln-form-logo--casper2{
+    width: 100px;
+  }
+}
+.dln-gray-box{
+  background-color: #e6fdd8;
+  font-size: 14px;
+  width: 100%;
+  border-radius: 10px;
+  color:#666;
+
+}

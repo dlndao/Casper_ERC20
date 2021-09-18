@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "target": "ESNext",
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "allowJs": true,
+    // "noImplicitAny": false,
+    "outDir": "../src",
+    "types": ["node"]
+  },
+  "include": ["."],
+  "exclude": ["node_modules", "**/*.spec.ts", "../src/**/*"]
+}
