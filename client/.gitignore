@@ -12,9 +12,12 @@ build
 # misc
 .DS_Store
 .env.local
+.env
 .env.development.local
+.env.development
 .env.test.local
 .env.production.local
+.env.production
 
 # log files
 .log*
