@@ -17,7 +17,7 @@ build
 .env.development
 .env.test.local
 .env.production.local
-.env.production
+.env.production.0
 
 # log files
 .log*
