@@ -755,37 +755,6 @@ export function Login() {
           </div>
         </section>
         <section className='space--top'>
-          {/* <div className='position-relative pb-7 pb-md-4 pb-lg-1 pb-xl-0 z-index1'>
-            <div className='container dln-hide-section'>
-              <div className='row'>
-                <div className='col-12 col-sm-9 col-lg-6 mb-4 mb-lg-7 mx-auto text-center reveal'>
-                  <h2 className='dln-bold-dark-text'>
-                    Sign up for the latest updates.
-                </h2>
-                  <p className='dln-light-small-p' >Sign up below for the latest updates on DLN DAO.</p>
-                </div>
-              </div>
-
-              <div className='col-12 col-md-10 col-lg-6 mx-md-auto'>
-                <div className='row dln-input-border' >
-                  <form
-                    action='#'
-                    className='form dln-form'
-                  >
-                    <input
-                      type='email'
-                      className='form-control dln-remove-input-border'
-                      placeholder='Enter your email'
-                      required
-                    />
-                  </form>
-                  <div className='dln-arrow-holder'>
-                    <FontAwesomeIcon icon={faArrowRight} className='mt-1 dln-right-arrow' />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> */}
           <div className='dln-footer-holder'>
             <div className='dln-header-line'></div>
             <Header handleClick={handleClick} />

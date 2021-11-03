@@ -5,7 +5,6 @@ import { getOS } from 'utils/helpers';
 import { DLNLogo } from 'Assets/img';
 function Header({ handleClick }: any) {
   const os = getOS();
-  const handleCasper = () => {};
   return (
     <Navbar
       collapseOnSelect
@@ -40,13 +39,6 @@ function Header({ handleClick }: any) {
           >
             Enter
           </Nav.Link>
-          {/* <Nav.Link
-            onClick={
-              handleCasper
-            }
-          >
-            Login With Casper
-          </Nav.Link> */}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
