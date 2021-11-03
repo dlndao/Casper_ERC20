@@ -7,7 +7,7 @@ use contract_utils::{ContractContext, ContractStorage};
 
 use crate::{
     data::{self, Allowances, Backers, Balances, Proposals, Stakes},
-    Backer, Proposal, ProposalId,
+    Backer, Error, Proposal, ProposalId,
 };
 
 pub trait ERC20<Storage: ContractStorage>: ContractContext<Storage> {
@@ -38,8 +38,8 @@ pub trait ERC20<Storage: ContractStorage>: ContractContext<Storage> {
         Proposals::instance().get(&proposal_id)
     }
 
-    fn transfer(&mut self, recipient: Key, amount: U256) {
-        self.make_transfer(self.get_caller(), recipient, amount);
+    fn transfer(&mut self, recipient: Key, amount: U256) -> Result<(), Error> {
+        self.make_transfer(self.get_caller(), recipient, amount)
     }
 
     fn approve(&mut self, spender: Key, amount: U256) {
@@ -50,12 +50,12 @@ pub trait ERC20<Storage: ContractStorage>: ContractContext<Storage> {
         Allowances::instance().get(&owner, &spender)
     }
 
-    fn transfer_from(&mut self, owner: Key, recipient: Key, amount: U256) {
+    fn transfer_from(&mut self, owner: Key, recipient: Key, amount: U256) -> Result<(), Error> {
         let allowances = Allowances::instance();
         let spender = self.get_caller();
         let spender_allowance = allowances.get(&owner, &spender);
         allowances.set(&owner, &spender, spender_allowance - amount);
-        self.make_transfer(owner, recipient, amount);
+        self.make_transfer(owner, recipient, amount)
     }
 
     fn mint(&mut self, recipient: Key, amount: U256) {
@@ -92,7 +92,7 @@ pub trait ERC20<Storage: ContractStorage>: ContractContext<Storage> {
         backers.remove(&proposal_id);
     }
 
-    fn make_transfer(&mut self, sender: Key, recipient: Key, amount: U256) {
+    fn make_transfer(&mut self, sender: Key, recipient: Key, amount: U256) -> Result<(), Error> {
         if sender == recipient || amount.is_zero() {
             return Ok(());
         }
@@ -104,6 +104,7 @@ pub trait ERC20<Storage: ContractStorage>: ContractContext<Storage> {
 
         balances.set(&sender, sender_balance - amount);
         balances.set(&recipient, recipient_balance + amount);
+        Ok(())
     }
 
     fn total_supply(&mut self) -> U256 {

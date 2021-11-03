@@ -14,7 +14,7 @@ use casper_types::{
     Group, Key, Parameter, RuntimeArgs, URef, U256,
 };
 use contract_utils::{ContractContext, OnChainContractStorage};
-use erc20::{self, Backer, Proposal, ProposalId, ERC20};
+use erc20::{self, Backer, Error, Proposal, ProposalId, ERC20};
 
 #[derive(Default)]
 struct Token(OnChainContractStorage);
@@ -44,18 +44,18 @@ fn constructor() {
 }
 
 #[no_mangle]
-fn transfer() {
+fn transfer() -> Result<(), Error> {
     let recipient: Key = runtime::get_named_arg("recipient");
     let amount: U256 = runtime::get_named_arg("amount");
-    Token::default().transfer(recipient, amount);
+    Token::default().transfer(recipient, amount)
 }
 
 #[no_mangle]
-fn transfer_from() {
+fn transfer_from() -> Result<(), Error> {
     let owner: Key = runtime::get_named_arg("owner");
     let recipient: Key = runtime::get_named_arg("recipient");
     let amount: U256 = runtime::get_named_arg("amount");
-    Token::default().transfer_from(owner, recipient, amount);
+    Token::default().transfer_from(owner, recipient, amount)
 }
 
 #[no_mangle]
