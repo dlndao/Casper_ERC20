@@ -6,7 +6,7 @@ import ThirdArticle from './thirdArticle';
 import FourthArticle from './fourthArticle';
 Modal.setAppElement('#root')
 
-
+// modal to view the swiper card content  
 const CustomModal = ({ display, changeState, title, id }: any) => {
     return (
         <Modal isOpen={display}

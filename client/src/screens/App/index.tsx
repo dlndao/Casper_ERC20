@@ -15,6 +15,7 @@ function App() {
   useEffect(() => {
     const language: any = localStorage.getItem('language');
     const html = document.getElementById('dln-html');
+    // check and set language logic
     if (language) {
       if (language === 'ar') {
         setIsArabic(true);

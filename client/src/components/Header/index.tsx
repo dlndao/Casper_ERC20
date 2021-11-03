@@ -4,6 +4,8 @@ import { Link } from 'react-scroll';
 import { getOS } from 'utils/helpers';
 import { DLNLogo } from 'Assets/img';
 function Header({ handleClick }: any) {
+  
+  // func to get the device operating system
   const os = getOS();
   return (
     <Navbar

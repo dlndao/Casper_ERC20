@@ -48,7 +48,7 @@ import {
   DLN_Community,
   Factory,
 } from 'Assets/img';
-
+// landing page with sections
 export function Login() {
   const history = useHistory();
   const dispatch = useUserDispatch();
@@ -541,7 +541,6 @@ export function Login() {
                             </div>
                             <div className='event--content'>
                               <h6>DLN Community Engaged</h6>
-                              {/* <p>Support in person, over the phone and online. Web chat is available from 8am to 8pm or you can give us a call for advice.</p> */}
                             </div>
                           </div>
                         </div>
@@ -552,7 +551,6 @@ export function Login() {
                           <div className='timeline-panel timeline-panel-left'>
                             <div className='event--content'>
                               <h6>Membership NFTs</h6>
-                              {/* <p>Cryptocurrencies have become established investment commodities among major financial institutions, have even adopted.</p> */}
                             </div>
                             {/*.event-content end */}
                             <div className='event--date'>
@@ -573,7 +571,6 @@ export function Login() {
                             </div>
                             <div className='event--content'>
                               <h6>Initial Smart Contracts</h6>
-                              {/* <p>Support in person, over the phone and online. Web chat is available from 8am to 8pm or you can give us a call for advice.</p> */}
                             </div>
                           </div>
                         </div>
@@ -586,7 +583,6 @@ export function Login() {
                               <h6>
                                 Social Staking Smart Contracts on Ethereum
                               </h6>
-                              {/* <p>Cryptocurrencies have become established investment commodities among major financial institutions, have even adopted.</p> */}
                             </div>
                             {/*.event-content end */}
                             <div className='event--date'>
