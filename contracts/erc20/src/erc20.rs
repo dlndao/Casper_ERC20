@@ -93,6 +93,10 @@ pub trait ERC20<Storage: ContractStorage>: ContractContext<Storage> {
     }
 
     fn make_transfer(&mut self, sender: Key, recipient: Key, amount: U256) {
+        if sender == recipient || amount.is_zero() {
+            return Ok(());
+        }
+
         let balances = Balances::instance();
 
         let sender_balance = balances.get(&sender);

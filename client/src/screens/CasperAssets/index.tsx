@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Spinner } from 'react-bootstrap';
 import ArrowForward from '@material-ui/icons/ArrowForward';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
-import { API } from 'aws-amplify';
+
 import { Link } from 'react-router-dom';
 import { toast as assetToast } from 'react-toastify';
 
@@ -74,20 +74,7 @@ function CasperAssets() {
     draggable: false,
   });
 
-  useEffect(() => {
-    (async () => {
-      await getBalance().then(() => {
-        setRefreshLoading(false);
-      });
-    })();
-  }, []);
-
   const getBalance = async () => {
-    const balanceOf = await eRC20Client.balanceOf(
-      user.publicAddress,
-      'ERC20_DLNG_STAKE_contract_hash'
-    );
-
     const tUSDC = await eRC20Client.getTokenBalance(
       user.publicAddress,
       'ERC20_tUSDC'
@@ -120,20 +107,20 @@ function CasperAssets() {
 
     const proposals = await proposalsAmount();
 
-    // const addProposal = await eRC20Client.addProposal(
-    //   'ERC20_aUSDT_contract_hash',
-    //   'ERC20_aUSDC_contract_hash',
-    //   'address-,userId-413,mfiId-1,description-Regular power cut is a common issue in Sundarban deltaic region. Due to this the entire family members are facing problems in studying of children cooking and a regular jobs.To address these all problems. the proposed beneficiary is requested to take l,amount-200,currentBalance-0,term- ,title-Goutam Sepai,monthsToRepay-12',
-    //   '169'
-    // );
-    // console.log(addProposal);
-
     setState({
       ...state,
       proposals,
       balances: { tUSDC, aUSDC, tUSDT, aUSDT, DLN, DLNG },
     });
   };
+
+  useEffect(() => {
+    (async () => {
+      await getBalance().then(() => {
+        setRefreshLoading(false);
+      });
+    })();
+  }, [getBalance]);
 
   const handleRefresh = async () => {
     setRefreshLoading(true);
@@ -143,7 +130,6 @@ function CasperAssets() {
   };
 
   const proposalsAmount = async () => {
-    // const proposals = await API.get('auth', '/api/borrow', {});
     const mappedProposals: any = [];
     const proposalIds = ['80', '144', '166', '168', '169'];
 
@@ -156,9 +142,6 @@ function CasperAssets() {
       mappedProposals.push(getProposal);
     }
 
-    // let proposalFunds = proposals.data.filter(
-    //   (proposal) => proposal.status === 2 && proposal.status !== 5
-    // );
     return mappedProposals;
   };
 
@@ -203,7 +186,7 @@ function CasperAssets() {
         <a
           href={`https://testnet.cspr.live/deploy/${faustHash}`}
           className='ml-1 text-white dln-text-underline'
-          target='_blank'
+          target='_blank noopener noreferrer'
         >
           Txn Hash
         </a>
@@ -242,7 +225,7 @@ function CasperAssets() {
     console.log(transferFromUserWallet);
 
     if (transferFromUserWallet) {
-      const transferToUserWallet = await eRC20Client.transfer(
+      await eRC20Client.transfer(
         `ERC20_${tokenReflection}_contract_hash`,
         '01700bd2dc609faf7bbfb92dc8cb2a1e3f9fd2c5685f6fa94176fb9c175cd15203',
         user.publicAddress,
@@ -259,7 +242,7 @@ function CasperAssets() {
         <a
           href={`https://testnet.cspr.live/deploy/${transferFromUserWallet}`}
           className='ml-1 text-white dln-text-underline'
-          target='_blank'
+          target='_blank noopener noreferrer'
         >
           Txn Hash
         </a>
@@ -297,7 +280,7 @@ function CasperAssets() {
     );
 
     if (transferFromUserWallet) {
-      const transferToUserWallet = await eRC20Client.transfer(
+      await eRC20Client.transfer(
         `ERC20_${tokenReflection}`,
         '01700bd2dc609faf7bbfb92dc8cb2a1e3f9fd2c5685f6fa94176fb9c175cd15203',
         user.publicAddress,
@@ -314,7 +297,7 @@ function CasperAssets() {
         <a
           href={`https://testnet.cspr.live/deploy/${transferFromUserWallet}`}
           className='ml-1 text-white dln-text-underline'
-          target='_blank'
+          target='_blank noopener noreferrer'
         >
           Txn Hash
         </a>
@@ -359,7 +342,7 @@ function CasperAssets() {
         <a
           href={`https://testnet.cspr.live/deploy/${transferFromUserWallet}`}
           className='ml-1 text-white dln-text-underline'
-          target='_blank'
+          target='_blank noopener noreferrer'
         >
           Txn Hash
         </a>
@@ -397,7 +380,7 @@ function CasperAssets() {
 
     const rewardDLNAmount = ((inputs.unStakeTokenValue * 10) / 100).toString();
 
-    const transferRewards = await eRC20Client.transfer(
+    await eRC20Client.transfer(
       `ERC20_DLN`,
       '01700bd2dc609faf7bbfb92dc8cb2a1e3f9fd2c5685f6fa94176fb9c175cd15203',
       user.publicAddress,
@@ -416,7 +399,7 @@ function CasperAssets() {
         <a
           href={`https://testnet.cspr.live/deploy/${transferToUserWallet}`}
           className='ml-1 text-white dln-text-underline'
-          target='_blank'
+          target='_blank noopener noreferrer'
         >
           Txn Hash
         </a>
@@ -452,7 +435,7 @@ function CasperAssets() {
       true
     );
 
-    const backTransaction = await eRC20Client.back(
+    await eRC20Client.back(
       `ERC20_${inputs.backTokenAddress}_contract_hash`,
       user.publicAddress,
       inputs.backTokenValue,
@@ -467,7 +450,7 @@ function CasperAssets() {
         <a
           href={`https://testnet.cspr.live/deploy/${transferFromUserWallet}`}
           className='ml-1 text-white dln-text-underline'
-          target='_blank'
+          target='_blank noopener noreferrer'
         >
           Txn Hash
         </a>
@@ -518,7 +501,7 @@ function CasperAssets() {
         100
       ).toString();
 
-      const transferDLNRewards = await eRC20Client.transfer(
+      await eRC20Client.transfer(
         `ERC20_DLN`,
         '01700bd2dc609faf7bbfb92dc8cb2a1e3f9fd2c5685f6fa94176fb9c175cd15203',
         user.publicAddress,
@@ -526,7 +509,7 @@ function CasperAssets() {
         false
       );
 
-      const transferDLNGRewards = await eRC20Client.transfer(
+      await eRC20Client.transfer(
         `ERC20_DLNG`,
         '01700bd2dc609faf7bbfb92dc8cb2a1e3f9fd2c5685f6fa94176fb9c175cd15203',
         user.publicAddress,
@@ -543,7 +526,7 @@ function CasperAssets() {
           <a
             href={`https://testnet.cspr.live/deploy/${transferToUserWallet}`}
             className='ml-1 text-white dln-text-underline'
-            target='_blank'
+            target='_blank noopener noreferrer'
           >
             Txn Hash
           </a>
@@ -660,9 +643,9 @@ function CasperAssets() {
                 </div>
                 <a
                   className='dln-break-word'
-                  target='_blank'
+                  target='_blank noopener noreferrer'
                   rel='noopener noreferrer'
-                  href='#'
+                  href='#!'
                 >
                   {/* // {user.publicAddress} */}
                 </a>

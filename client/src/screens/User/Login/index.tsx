@@ -1,16 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Signer } from 'casper-js-sdk';
-import { useWallet } from 'use-wallet';
-import { API } from 'aws-amplify';
-import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import { Spinner } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
 import {
   faFacebookF,
   faLinkedinIn,
@@ -20,8 +13,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 import { useUserDispatch } from 'contexts/UserAuthContext';
-import { User, Auth, UserActionTypes } from 'types';
-import { getOS } from 'utils/helpers';
+import { UserActionTypes } from 'types';
 import Card from './card';
 import { Header } from 'components/Header';
 import PrivacyPolicyModal from 'components/modal/privacyPolicyModal';
@@ -60,39 +52,8 @@ import {
 export function Login() {
   const history = useHistory();
   const dispatch = useUserDispatch();
-  const [state, setState] = useState({
-    loading: false,
-    users: [],
-    open: false,
-  });
-  const [activePublicKey, setActivePublicKey] = useState('');
-  const [isConnected, setIsConnected] = useState(false);
-  const [isOpen, setOpen] = useState(false);
-  const [usersCount, setUsersCount] = useState(0);
-  const [countriesCount, setCountriesCount] = useState(0);
-  const [index, setIndex] = React.useState(0);
   const [display, setDisplay] = React.useState(false);
   const [displayJoinBox, setDisplayJoinBox] = React.useState(false);
-  const address: any = useRef('');
-  const eth: any = useRef('');
-  const LS_KEY = 'dln:auth';
-
-  // useEffect((): any => {
-  //   address.current = account;
-  //   eth.current = ethereum;
-  //   setInterval(() => setIndex((index) => index + 1), 2000);
-  //   (async () => {
-  //     const users: any = await API.get('auth', `/api/users`, {});
-  //     const countriesCount = await API.get(
-  //       'auth',
-  //       `/api/users/countriesCount`,
-  //       {}
-  //     );
-
-  //     setUsersCount(users.length);
-  //     setCountriesCount(countriesCount);
-  //   })();
-  // }, [account, ethereum]);
 
   const handleClick = async (type?: any) => {
     const isConnected = await Signer.isConnected();
@@ -113,8 +74,8 @@ export function Login() {
     if (selectedAddress) {
       const pk: any = await getActivePublicKey();
       console.log(pk);
-      setActivePublicKey(pk);
-      setIsConnected(true);
+      // setActivePublicKey(pk);
+      // setIsConnected(true);
       const casperUser: any = { publicAddress: pk };
       dispatch({
         type: UserActionTypes.SUCCESS,
@@ -130,9 +91,6 @@ export function Login() {
 
   const handler = () => {
     setDisplay(false);
-  };
-  const displayJoinBoxMOdal = () => {
-    setDisplayJoinBox(true);
   };
 
   const handlerCloseBox = () => {
@@ -919,7 +877,9 @@ export function Login() {
               <div className='col-12 mx-auto'>
                 <p className='dln-color-accent dln-privacy-text'>
                   &copy;2021 DLN.org |{' '}
-                  <a onClick={() => displayText()}>Privacy Policy</a>
+                  <a href='#!' onClick={() => displayText()}>
+                    Privacy Policy
+                  </a>
                 </p>
               </div>
             </div>

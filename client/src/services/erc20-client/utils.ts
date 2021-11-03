@@ -5,11 +5,7 @@ import { OWNER_PUBLIC_KEY, RPC_API } from '../constants';
 export const camelCased = (myString: string) =>
   myString.replace(/_([a-z])/g, (g) => g[1].toUpperCase());
 
-export const parseTokenMeta = (str: string): Array<[string, string]> =>
-  str.split(',').map((s) => {
-    const map = s.split('-');
-    return [map[0], map[1]];
-  });
+export const parseMap = (mapArray: object): any => Object.entries(mapArray);
 
 /**
  * Returns an ECC key pair mapped to an NCTL faucet account.

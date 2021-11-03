@@ -27,9 +27,9 @@ export class CsvDataService {
         .join('\n');
 
     const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
-    if (navigator.msSaveBlob) {
+    if ((navigator as any).msSaveBlob) {
       // IE 10+
-      navigator.msSaveBlob(blob, filename);
+      (navigator as any).msSaveBlob(blob, filename);
     } else {
       const link = document.createElement('a');
       if (link.download !== undefined) {

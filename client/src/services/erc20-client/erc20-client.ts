@@ -8,12 +8,8 @@ import {
   CLValue,
   CLPublicKey,
   Signer,
-  CLMap,
   CLTypeBuilder,
-  CLString,
 } from 'casper-js-sdk';
-import axios from 'axios';
-import { Some } from 'ts-results';
 
 import * as utils from './utils';
 import { OWNER_PUBLIC_KEY, RPC_API, CHAIN_NAME } from '../constants';
@@ -24,7 +20,6 @@ class ERC20Client {
   private ownerPublicKey: string;
 
   constructor() {
-    // private chainName: string // private contractHash: string, // private asymmetricKey: string // private nodeAddress: string,
     this.nodeAddress = RPC_API;
     this.chainName = CHAIN_NAME;
     this.ownerPublicKey = OWNER_PUBLIC_KEY;
@@ -220,7 +215,8 @@ class ERC20Client {
     proposal: string,
     proposal_id: string
   ) {
-    const mappedProposal = new Map(utils.parseTokenMeta(proposal));
+    const mappedProposal = new Map(Object.entries(proposal));
+
     const sender =
       '01700bd2dc609faf7bbfb92dc8cb2a1e3f9fd2c5685f6fa94176fb9c175cd15203';
     const client = new CasperClient(this.nodeAddress);
@@ -297,7 +293,7 @@ class ERC20Client {
       : amount;
 
     const backingObj = `delegator-${delegator},amount-${amount},fundedAmount-${fundedAmount}`;
-    const mappedBacker = new Map(utils.parseTokenMeta(backingObj));
+    const mappedBacker = new Map(Object.entries({ backingObj }));
     const sender =
       '01700bd2dc609faf7bbfb92dc8cb2a1e3f9fd2c5685f6fa94176fb9c175cd15203';
 
@@ -411,13 +407,14 @@ class ERC20Client {
 }
 
 const mapOwnerKeys = async () => {
-  const keys: any = await axios.get(
-    'https://68dc7ezvig.execute-api.us-east-2.amazonaws.com/dev/getKeyPairOfContract'
+  const privateKey = Keys.Ed25519.parsePrivateKey(
+    Keys.Ed25519.readBase64WithPEM(
+      process.env.REACT_APP_CASPER_PRIVATE_KEY as string
+    )
   );
-  const mappedKeys = Keys.Ed25519.parseKeyPair(
-    Uint8Array.from(Object.values(keys.data.publicKey.data.data)),
-    Uint8Array.from(Object.values(keys.data.privateKey.data))
-  );
+
+  const publicKey = Keys.Ed25519.privateToPublicKey(privateKey);
+  const mappedKeys = Keys.Ed25519.parseKeyPair(publicKey, privateKey);
 
   return mappedKeys;
 };
@@ -500,18 +497,11 @@ const toCLMap = (map: Map<string, string>) => {
     CLTypeBuilder.string(),
     CLTypeBuilder.string(),
   ]);
+
   for (const [key, value] of Array.from(map.entries())) {
     clMap.set(CLValueBuilder.string(key), CLValueBuilder.string(value));
   }
   return clMap;
-};
-
-const fromCLMap = (map: Map<CLString, CLString>) => {
-  const jsMap = new Map();
-  for (const [key, value] of Array.from(map.entries())) {
-    jsMap.set(key.value(), value.value());
-  }
-  return jsMap;
 };
 
 export default ERC20Client;
