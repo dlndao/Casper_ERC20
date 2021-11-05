@@ -11,7 +11,7 @@ import {
   HelpSl,
   Questscope,
 } from 'Assets/img';
-import CustomModal from './../../../components/modal/modal';
+import CustomModal from '../modal/modal';
 import Slider from 'react-slick';
 
 // function for handling swiper next arrow

@@ -14,7 +14,7 @@ import {
 
 import { useUserDispatch } from 'contexts/UserAuthContext';
 import { UserActionTypes } from 'types';
-import Card from './card';
+import Card from '../../../components/Card';
 import { Header } from 'components/Header';
 import PrivacyPolicyModal from 'components/modal/privacyPolicyModal';
 import JoinBoxModal from 'components/modal/joinBoxModal';
