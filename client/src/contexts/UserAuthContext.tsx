@@ -3,7 +3,7 @@ import { API } from 'aws-amplify';
 import jwtDecode from 'jwt-decode';
 
 import { getAccessToken } from 'utils/helpers';
-import { UserActionTypes, User } from 'types';
+import { UserActionTypes, User } from 'contexts/types';
 
 interface UserState {
   user?: User;

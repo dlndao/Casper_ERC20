@@ -1,6 +1,7 @@
 import React from 'react';
 
 
+// this modal contains the content of DCBS organization of swiper  section on click card 
 const SecondArticle = () => {
     return (
         <div>

@@ -1,4 +1,5 @@
 import React from 'react';
+// this modal contains the content of Afghanistan Women Council organization of swiper  section on click card 
 
 const ThirdArticle = () => {
     return (

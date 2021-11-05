@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom';
 import { APP_NAME } from 'screens/DLNTezos/dapp/defaults';
 import { DAppProvider } from 'screens/DLNTezos/dapp/dapp';
 
-import { Login } from 'screens/User/Login';
+import { Login } from 'screens/User/LandingPage';
 import { CasperAssets } from 'screens/CasperAssets';
 import AlertTemplate from 'react-alert-template-basic';
 import { positions, Provider, types } from 'react-alert';

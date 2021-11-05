@@ -1,9 +1,9 @@
 import React from 'react';
 import Modal from 'react-modal';
-import FirstArticle from './firstArticl';
-import SecondArticle from './secondArticle';
-import ThirdArticle from './thirdArticle';
-import FourthArticle from './fourthArticle';
+import FirstArticle from '../StaticArticls/firstArticl';
+import SecondArticle from '../StaticArticls/secondArticle';
+import ThirdArticle from '../StaticArticls/thirdArticle';
+import FourthArticle from '../StaticArticls/fourthArticle';
 Modal.setAppElement('#root')
 
 // modal to view the swiper card content  

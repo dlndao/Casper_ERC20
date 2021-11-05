@@ -6,7 +6,6 @@ import { UserProvider } from 'contexts/UserAuthContext';
 
 import { Routes } from 'routes';
 import theme from 'theme';
-import './styles.css';
 import classNames from 'classnames';
 
 function App() {
