@@ -1,4 +1,4 @@
-import { blockchain } from 'Assets/img';
+
 
 const {
   web3,

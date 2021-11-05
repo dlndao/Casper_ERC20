@@ -6,7 +6,6 @@ import { APP_NAME } from 'screens/DLNTezos/dapp/defaults';
 import { DAppProvider } from 'screens/DLNTezos/dapp/dapp';
 
 import { Login } from 'screens/User/Login';
-import { UserProfile } from 'screens/User/Profile';
 import { CasperAssets } from 'screens/CasperAssets';
 import AlertTemplate from 'react-alert-template-basic';
 import { positions, Provider, types } from 'react-alert';
@@ -23,13 +22,6 @@ function Routes() {
         <Switch>
           <Route exact path='/' component={Login} />
           <Route path='/login' component={Login} />
-
-          {/* <RouteWrapper
-            path='/profile'
-            isAdmin={false}
-            component={(props) => <UserProfile {...props} />}
-          /> */}
-
           <RouteWrapper
             path='/CasperAssets'
             isAdmin={false}

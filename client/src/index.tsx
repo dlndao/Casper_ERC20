@@ -6,7 +6,7 @@ import config from './aws-exports';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 
-// import { App } from './App';
+// app entry point
 import './index.scss';
 import { App } from 'screens/App';
 import 'typeface-lato';

@@ -14,7 +14,7 @@ import {
 
 import { useUserDispatch } from 'contexts/UserAuthContext';
 import { UserActionTypes } from 'types';
-import Card from './card';
+import Card from '../../../components/Card';
 import { Header } from 'components/Header';
 import PrivacyPolicyModal from 'components/modal/privacyPolicyModal';
 import JoinBoxModal from 'components/modal/joinBoxModal';
@@ -48,7 +48,7 @@ import {
   DLN_Community,
   Factory,
 } from 'Assets/img';
-
+// landing page with sections
 export function Login() {
   const history = useHistory();
   const dispatch = useUserDispatch();
@@ -541,7 +541,6 @@ export function Login() {
                             </div>
                             <div className='event--content'>
                               <h6>DLN Community Engaged</h6>
-                              {/* <p>Support in person, over the phone and online. Web chat is available from 8am to 8pm or you can give us a call for advice.</p> */}
                             </div>
                           </div>
                         </div>
@@ -552,7 +551,6 @@ export function Login() {
                           <div className='timeline-panel timeline-panel-left'>
                             <div className='event--content'>
                               <h6>Membership NFTs</h6>
-                              {/* <p>Cryptocurrencies have become established investment commodities among major financial institutions, have even adopted.</p> */}
                             </div>
                             {/*.event-content end */}
                             <div className='event--date'>
@@ -573,7 +571,6 @@ export function Login() {
                             </div>
                             <div className='event--content'>
                               <h6>Initial Smart Contracts</h6>
-                              {/* <p>Support in person, over the phone and online. Web chat is available from 8am to 8pm or you can give us a call for advice.</p> */}
                             </div>
                           </div>
                         </div>
@@ -586,7 +583,6 @@ export function Login() {
                               <h6>
                                 Social Staking Smart Contracts on Ethereum
                               </h6>
-                              {/* <p>Cryptocurrencies have become established investment commodities among major financial institutions, have even adopted.</p> */}
                             </div>
                             {/*.event-content end */}
                             <div className='event--date'>
@@ -755,37 +751,6 @@ export function Login() {
           </div>
         </section>
         <section className='space--top'>
-          {/* <div className='position-relative pb-7 pb-md-4 pb-lg-1 pb-xl-0 z-index1'>
-            <div className='container dln-hide-section'>
-              <div className='row'>
-                <div className='col-12 col-sm-9 col-lg-6 mb-4 mb-lg-7 mx-auto text-center reveal'>
-                  <h2 className='dln-bold-dark-text'>
-                    Sign up for the latest updates.
-                </h2>
-                  <p className='dln-light-small-p' >Sign up below for the latest updates on DLN DAO.</p>
-                </div>
-              </div>
-
-              <div className='col-12 col-md-10 col-lg-6 mx-md-auto'>
-                <div className='row dln-input-border' >
-                  <form
-                    action='#'
-                    className='form dln-form'
-                  >
-                    <input
-                      type='email'
-                      className='form-control dln-remove-input-border'
-                      placeholder='Enter your email'
-                      required
-                    />
-                  </form>
-                  <div className='dln-arrow-holder'>
-                    <FontAwesomeIcon icon={faArrowRight} className='mt-1 dln-right-arrow' />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> */}
           <div className='dln-footer-holder'>
             <div className='dln-header-line'></div>
             <Header handleClick={handleClick} />

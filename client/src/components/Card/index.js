@@ -1,3 +1,4 @@
+// this file is handling the swiper on feature section
 import React from 'react';
 import {
   Right_Arrow,
@@ -10,9 +11,10 @@ import {
   HelpSl,
   Questscope,
 } from 'Assets/img';
-import CustomModal from './../../../components/modal/modal';
+import CustomModal from '../modal/modal';
 import Slider from 'react-slick';
 
+// function for handling swiper next arrow
 function SampleNextArrow(props) {
   const { className, onClick } = props;
   return (
@@ -25,6 +27,7 @@ function SampleNextArrow(props) {
   );
 }
 
+// function for handling swiper previous arrow
 function SamplePrevArrow(props) {
   const { className, onClick } = props;
   return (
@@ -36,6 +39,7 @@ function SamplePrevArrow(props) {
     />
   );
 }
+// wiper card ui
 class Card extends React.Component {
   constructor(props) {
     super(props);

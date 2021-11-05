@@ -1,37 +1,4 @@
-export { default as dgh } from './partners/dgh.png';
-export { default as blockchain } from './partners/blockchain.png';
-export { default as totle } from './partners/totle.png';
-export { default as rivet } from './partners/rivet.png';
-export { default as primedao } from './partners/primedao.png';
-export { default as giftz } from './partners/giftz.png';
-export { default as lunarCrush } from './partners/lunarCrush.png';
-export { default as dmm } from './partners/dmm.png';
-export { default as coinsquad } from './partners/coinsquad.png';
-export { default as casper } from './partners/casper.png';
-export { default as WebDbtech } from './partners/WebDbtech.png';
-export { default as wish } from './partners/wish.png';
-export { default as feedBackAdel } from './adel.png';
-export { default as feedBackDavid } from './david.png';
-export { default as feedBackJoe } from './joe.png';
-export { default as feedBackGregory } from './Gregory.png';
-export { default as feedBackBadri } from './badri.png';
-export { default as illustration16 } from './illustration-16.png';
-export { default as illustration17 } from './illustration-17.png';
-export { default as wave13 } from './layout/wave-13.svg';
-export { default as hero11 } from './hero-11.png';
-export { default as wave8 } from './layout/wave-8.svg';
-export { default as wave9 } from './layout/wave-9.svg';
-export { default as wave10 } from './layout/wave-10.svg';
-export { default as wave11 } from './layout/wave-11.svg';
-export { default as oval } from './layout/oval.svg';
-export { default as braces } from './layout/braces.svg';
-export { default as dlnLogo } from './dln-logo.png';
-export { default as newsLetter } from './newsletter.png';
-export { default as brandLogoWhite } from './brand-logo-white.png';
 export { default as logoDark } from './DLN-dark.png';
-export { default as binanceLogo } from './binance.png';
-export { default as nftFalafel } from './nftfalafel.png';
-export { default as alphaFin } from './alphaFin.png';
 export { default as alphaFin2 } from './Alphafin2.png';
 export { default as BS } from './BS.png';
 export { default as Casper } from './Casper.png';
@@ -43,12 +10,6 @@ export { default as Rivet } from './Rivet.png';
 export { default as Totle } from './Totle.png';
 export { default as WDBT } from './WDBT.png';
 export { default as wishKnish } from './wishKnish.png';
-export { default as safe } from './Safe.png';
-export { default as assetIcon } from './menu-icons/assets.png';
-export { default as investIcon } from './menu-icons/invest.png';
-export { default as treasuryIcon } from './menu-icons/treasury.png';
-export { default as borrowIcon } from './menu-icons/borrow.png';
-export { default as profileIcon } from './menu-icons/profile.png';
 export { default as Right_Arrow } from './Right_Arrow.png';
 export { default as Left_Arrow } from './Left_Arrow.png';
 export { default as SmallLogo } from './smlLogo.png';
@@ -58,7 +19,9 @@ export { default as DCBSLogo } from './dcbsLogo.png'
 export { default as AfgahnOrg } from './afghanOrg.png'
 export { default as HelpSl } from './helpSl.png'
 export { default as Questscope } from './questscope-circle.png'
-//latest landing page
+
+// landing page
+
 export { default as DLNLogo } from '../Images/DLN-Logo.png';
 export { default as DLNLHeroRight } from '../Images/Hero_Dln_Glass.png';
 export { default as Borrower } from '../Images/Borrower2.png';
@@ -74,12 +37,6 @@ export { default as Token } from '../Images/Token.png';
 export { default as Assets } from '../Images/Assets.png';
 export { default as ArrowWithHeads } from '../Images/Arrow.png';
 export { default as Arrow } from '../Images/Arrow_1.png';
-export { default as Icon_1 } from '../Images/Icon_1.png';
-export { default as Icon_2 } from '../Images/Icon_2.png';
-export { default as Icon_3 } from '../Images/Icon_3.png';
-export { default as Icon_4 } from '../Images/Icon_4.png';
-export { default as Icon_5 } from '../Images/Icon_5.png';
-export { default as Icon_6 } from '../Images/Icon_6.png';
 export { default as DLN_Community } from '../Images/DLN_Community.png';
 export { default as Factory } from '../Images/Factory.png';
 export { default as Casper2 } from './casper2.png';
