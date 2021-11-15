@@ -25,6 +25,7 @@ impl ContractContext<OnChainContractStorage> for Token {
     }
 }
 
+/// Implementation of ERC20 standard functionality.
 impl ERC20<OnChainContractStorage> for Token {}
 
 impl Token {
