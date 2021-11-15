@@ -752,7 +752,6 @@ function CasperAssets() {
                 </div>
               </div>
               <div className='col-lg-3 col-sm-12'>
-                {/* <input type='text' readOnly={true} /> */}
                 <div className='dln-asset d-flex align-self-center pt-2'>
                   <span className='dln-txt-primary-color pr-1'>
                     {state.inputs.mintTokenValue}
@@ -838,7 +837,6 @@ function CasperAssets() {
               </div>
               <div className='col-lg-3 col-sm-12'>
                 <div className='dmmSection w-100'>
-                  {/* <input type='text' readOnly={true} /> */}
 
                   <div className='dln-asset  d-flex align-self-center pt-2'>
                     <span className='dln-txt-primary-color pr-1'>
@@ -1019,19 +1017,6 @@ function CasperAssets() {
               <div className='col-lg-5 col-sm-12'>
                 <div className='dln-label-upper-text'>Proposal to Back</div>
                 <div className='inputWrapper'>
-                  {/* {state.proposalsLoading && (
-                    <div className='dln-section-spinner-container dln-select-spinner'>
-                      <div className='dln-spinner-body pt-0 '>
-                        <Spinner
-                          className='mr-1 dln-page-spinner'
-                          as='span'
-                          animation='border'
-                          role='status'
-                          aria-hidden='true'
-                        />
-                      </div>
-                    </div>
-                  )} */}
                   <select
                     name='backProposal'
                     value={state.inputs.backProposal}
@@ -1118,19 +1103,6 @@ function CasperAssets() {
               <div className='col-lg-5 col-sm-12'>
                 <div className='dln-label-upper-text'>Proposal to UnBack</div>
                 <div className='inputWrapper'>
-                  {/* {state.proposalsLoading && (
-                    <div className='dln-section-spinner-container  dln-select-spinner'>
-                      <div className='dln-spinner-body pt-0 '>
-                        <Spinner
-                          className='mr-1 dln-page-spinner'
-                          as='span'
-                          animation='border'
-                          role='status'
-                          aria-hidden='true'
-                        />
-                      </div>
-                    </div>
-                  )} */}
                   <select
                     name='unBackProposal'
                     value={state.inputs.unBackProposal}

@@ -13,10 +13,10 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 import { useUserDispatch } from 'contexts/UserAuthContext';
-import { UserActionTypes } from 'types';
-import Card from '../../../components/Card';
+import { UserActionTypes } from 'contexts/types';
+import Card from '../../../components/Swiper/Card';
 import { Header } from 'components/Header';
-import PrivacyPolicyModal from 'components/modal/privacyPolicyModal';
+import PrivacyPolicyModal from 'components/PrivacyPolicy/privacyPolicyModal';
 import JoinBoxModal from 'components/modal/joinBoxModal';
 import { getActivePublicKey } from 'services/casper';
 
@@ -52,7 +52,7 @@ import {
 export function Login() {
   const history = useHistory();
   const dispatch = useUserDispatch();
-  const [display, setDisplay] = React.useState(false);
+  const [privacyDisplay, setDisplayPrivacy] = React.useState(false);
   const [displayJoinBox, setDisplayJoinBox] = React.useState(false);
 
   const handleClick = async (type?: any) => {
@@ -73,9 +73,6 @@ export function Login() {
 
     if (selectedAddress) {
       const pk: any = await getActivePublicKey();
-      console.log(pk);
-      // setActivePublicKey(pk);
-      // setIsConnected(true);
       const casperUser: any = { publicAddress: pk };
       dispatch({
         type: UserActionTypes.SUCCESS,
@@ -85,12 +82,10 @@ export function Login() {
     }
   };
 
-  const displayText = () => {
-    setDisplay(true);
-  };
 
-  const handler = () => {
-    setDisplay(false);
+
+  const privacyHndler = () => {
+    setDisplayPrivacy(false);
   };
 
   const handlerCloseBox = () => {
@@ -101,6 +96,7 @@ export function Login() {
       <Container fluid className='px-0 dln-landPage'>
         <Header handleClick={handleClick} />
         <div className='dln-header-line'></div>
+        {/* Intro section */}
         <main className='dln-hero mt-2'>
           <Row>
             <Col md={7} sm={12} className='dln-hero-left'>
@@ -128,6 +124,7 @@ export function Login() {
             </Col>
           </Row>
         </main>
+        {/* Vision section */}
         <section className='py-5 mt-3 dln-Microlending-section' id='vision'>
           <Row className='justify-content-center'>
             <Col md={6} sm={12}>
@@ -294,6 +291,7 @@ export function Login() {
             </Col>
           </Row>
         </section>
+        {/* Social Staking section */}
         <section className='dln-social-stacking-section py-4'>
           <Row>
             <Col md={3} className='align-self-center'>
@@ -327,6 +325,7 @@ export function Login() {
             </Col>
           </Row>
         </section>
+        {/* Social Staking smart contract section */}
         <section className='dln-smart-contract py-5 px-5 dln-hide-small-device dln-social-staking-hide-in-ipad'>
           <Row className='px-5 mx-5 py-5'>
             <Col md={12} lg={4}>
@@ -427,6 +426,7 @@ export function Login() {
             </Col>
           </Row>
         </section>
+        {/* MFI section */}
         <div className='dln-bg-grey'>
           <section className='container future-roadmap-area pt-5' id='mfi'>
             <Row className='justify-content-center'>
@@ -605,6 +605,7 @@ export function Login() {
             </section>
           </section>
         </div>
+        {/* Foundation section */}
         <section className='dln-foundation' id='foundation'>
           <Row>
             <Col className='text-center py-2'>
@@ -679,6 +680,7 @@ export function Login() {
             </Col>
           </Row>
         </section>
+        {/* News section */}
         <section className='dln-social-stacking-section' id='news'>
           <Row className='justify-content-center'>
             <Col
@@ -698,6 +700,7 @@ export function Login() {
             </Col>
           </Row>
         </section>
+        {/* Swiper section */}
         <section className='dln-carousel-section'>
           <div className='container'>
             <h2 className='dln-featured-text'>Featured</h2>
@@ -710,6 +713,7 @@ export function Login() {
             </Col>
           </Row>
         </section>
+        {/* Partners section */}
         <section className=' dln-carousel-section '>
           <div className='dln-carousel-box container'>
             <Row>
@@ -750,6 +754,7 @@ export function Login() {
             </Row>
           </div>
         </section>
+        {/* Footer section */}
         <section className='space--top'>
           <div className='dln-footer-holder'>
             <div className='dln-header-line'></div>
@@ -842,17 +847,17 @@ export function Login() {
               <div className='col-12 mx-auto'>
                 <p className='dln-color-accent dln-privacy-text'>
                   &copy;2021 DLN.org |{' '}
-                  <a href='#!' onClick={() => displayText()}>
+                  <a href="#" onClick={() => setDisplayPrivacy(true)}>
                     Privacy Policy
                   </a>
                 </p>
               </div>
             </div>
           </div>
-          {display && (
+          {privacyDisplay && (
             <PrivacyPolicyModal
-              display={display}
-              changeState={() => handler()}
+              display={privacyDisplay}
+              changeState={() => privacyHndler()}
             />
           )}
           {displayJoinBox && (

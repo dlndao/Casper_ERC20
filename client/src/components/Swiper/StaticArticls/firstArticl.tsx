@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-
+// this modal contains the content of Hands Empowering the Less Privileged organization of swiper  section on click card  
 const FirstArticle = () => {
     return (
         <div>

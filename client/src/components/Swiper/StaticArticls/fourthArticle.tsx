@@ -1,7 +1,6 @@
 import React from 'react';
 
-
-
+// this modal contains the content of Questscope organization of swiper  section on click card 
 const FourthArticle = () => {
     return (
         <div>

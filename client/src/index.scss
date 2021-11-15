@@ -1,8 +1,8 @@
 @import 'bootstrap/scss/bootstrap.scss';
-@import './screens/User/Login/_variables.scss';
-@import './screens/User/Login/landingPageColors.scss';
-@import './screens/User/Login/landingPage.Style.scss';
-@import './screens/User/Login/roadmap.scss';
+@import './screens/Styles/HomePageStyle/_variables.scss';
+@import './screens/Styles/HomePageStyle/landingPageColors.scss';
+@import './screens/Styles/HomePageStyle/landingPage.Style.scss';
+@import './screens/Styles/RoadMapStyle/roadmap.scss';
 @import 'node_modules/react-modal-video/scss/modal-video.scss';
 @import 'node_modules/slick-carousel/slick/slick.scss';
 @import 'node_modules/slick-carousel/slick/slick-theme.scss';
